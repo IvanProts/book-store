@@ -1,0 +1,32 @@
+### Create a new user
+
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "phoneNumber": "+380973837457",
+    "email": "test@gmail.com",
+    "firstName": "Ivan",
+    "lastName": "Prots",
+    "role": "admin",
+    "password": "mypassword"
+}
+
+### Find user by ID
+GET http://localhost:3000/users/653e17ec0cb80055281298d6
+
+### Find all users
+GET http://localhost:3000/users
+
+
+
+### Delete user by ID
+DELETE  http://localhost:3000/users/653e17ec0cb80055281298d6
+
+### Update a user
+PATCH   http://localhost:3000/users/653e17ec0cb80055281298d6
+Content-Type: application/json
+
+{
+    "email": "ivan@gg.com"
+}
