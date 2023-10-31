@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User } from './shcemas/user.schema';
@@ -31,6 +31,12 @@ export class UsersService {
     return user;
   }
 
+  async findOneUserByEmail(email: string) {
+    const user = await this.userModel.findOne({email});
+    if (!user) throw new NotFoundException('User not found!')
+    return user;
+  }
+
   async findAllUsers() {
     const users = await this.userModel.find();
     return users;
@@ -38,6 +44,7 @@ export class UsersService {
 
   async updateUser(id: string, data: Partial<User>) {
     const foundedUser = await this.findOneUser(id);
+    if (!foundedUser) throw new NotFoundException('User not found!')
     if (data.email) {
       foundedUser.email = data.email;
     }
