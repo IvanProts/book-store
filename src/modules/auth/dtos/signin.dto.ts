@@ -1,7 +1,7 @@
 import { Expose } from "class-transformer";
 import { IsEmail, IsNotEmpty, NotEquals } from "class-validator";
 
-export class AuthDto {
+export class SignInDto {
     @IsNotEmpty()
     @IsEmail()
     email: string;
