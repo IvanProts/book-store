@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### Find user by ID
-GET http://localhost:3000/users/653e17ec0cb80055281298d6
+GET http://localhost:3000/users/6540f324b52d5de0bdd39246
 
 ### Find all users
 GET http://localhost:3000/users
